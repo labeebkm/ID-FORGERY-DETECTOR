@@ -162,7 +162,6 @@ Upload a JPEG or PNG image for forensic analysis.
 - ELA analysis is most effective on JPEG images; PNG results may vary.
 - Results should be treated as investigative leads, not definitive verdicts.
 
-$env:GEMINI_API_KEY = "AIzaSyCWHS9YCDjq9nqHp6Oup4PP1wnybqlHyTk"
 
 # To start the backend
 cd C:\Users\HP\Documents\docforge\frontend
@@ -170,5 +169,5 @@ npm run dev
 
 # To start the frontend
 cd C:\Users\HP\Documents\docforge
-$env:GEMINI_API_KEY = "AIzaSyCWHS9YCDjq9nqHp6Oup4PP1wnybqlHyTk"
+$env:GEMINI_API_KEY = "Give you api key here"
 uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
