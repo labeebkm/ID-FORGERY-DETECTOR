@@ -169,5 +169,32 @@ npm run dev
 
 # To start the frontend
 cd C:\Users\HP\Documents\docforge
-$env:GEMINI_API_KEY = "Give you api key here"
+
+# Option A: set backend env vars in a file (recommended)
+#   1) Copy backend/.env.example -> backend/.env
+#   2) Fill in GEMINI_API_KEY in backend/.env
+#   3) Run the backend
 uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
+
+# Option B: set backend env vars in the shell (one session only)
+$env:GEMINI_API_KEY = "Give you api key here"
+$env:GEMINI_MODEL = "gemini-2.0-flash"  # Free-tier model that supports image input
+$env:GEMINI_MODEL_CHECK = "0"           # Optional: set "1" to enable model availability warning
+$env:GEMINI_MODEL_CHECK_TTL_SECONDS = "3600"  # Optional: re-check cadence
+uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
+
+## Gemini API Key (Free Tier)
+1. Open Google AI Studio and sign in with a Google account.
+2. Create a new API key from the API Keys page.
+3. Put the key in `backend/.env` (recommended) or set `GEMINI_API_KEY` in your shell.
+
+Notes:
+- Free tier has rate limits and model availability constraints.
+- If you set a model you don't have access to, the Gemini call will fail with a 4xx error.
+
+#How to run
+1. run backend in one terminal:
+uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
+
+2. then got to cd frontend path and run frontend in another terminal:
+npm run dev

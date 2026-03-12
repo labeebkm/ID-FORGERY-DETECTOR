@@ -129,6 +129,7 @@ async def analyze_id(image: UploadFile = File(...)) -> FraudReport:
             reasoning=gemini_result.reasoning,
             available=gemini_result.available,
         ),
+        warnings=gemini_result.warnings,
         explanation=explanation,
         processing_time_ms=processing_time_ms,
         validation=validation,

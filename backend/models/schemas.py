@@ -32,6 +32,7 @@ class FraudReport(BaseModel):
     risk_level: str
     analysis: ForensicAnalysisBreakdown
     gemini: Optional[GeminiAnalysis] = None
+    warnings: List[str] = Field(default_factory=list)
     explanation: str
     processing_time_ms: int = Field(..., ge=0)
     validation: ValidationResult

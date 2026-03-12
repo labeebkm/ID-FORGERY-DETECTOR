@@ -19,6 +19,7 @@ export interface FraudReport {
     reasoning: string;
     available: boolean;
   } | null;
+  warnings: string[];
   validation: {
     is_valid: boolean;
     reasons: string[];

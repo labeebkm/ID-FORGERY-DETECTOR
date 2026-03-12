@@ -256,6 +256,26 @@ export default function Home() {
           {report && colors && (
             <div style={{ animation: "fadeUp 0.4s ease" }}>
 
+              {/* Warnings */}
+              {report.warnings?.length > 0 && (
+                <div style={{
+                  background: "#fffbeb",
+                  border: "1px solid #fbbf24",
+                  borderRadius: 12,
+                  padding: "12px 16px",
+                  fontSize: 12,
+                  color: "#92400e",
+                  marginBottom: 16,
+                }}>
+                  <div style={{ fontWeight: 700, marginBottom: 6 }}>Warning</div>
+                  {report.warnings.map((warning, idx) => (
+                    <div key={`${idx}-${warning}`} style={{ lineHeight: 1.6 }}>
+                      {warning}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Big verdict */}
               <div style={{
                 background: colors.bg,
